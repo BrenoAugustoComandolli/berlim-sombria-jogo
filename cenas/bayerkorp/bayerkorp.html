@@ -1,3 +1,137 @@
 <a-entity id="cena-bayerkorp">
-    <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" color="#7BC8A4"></a-plane>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="
+    src: #chao-hall;
+    repeat: 25 30;
+    "></a-plane>
+    <!-- Adicionando a luz ambiente -->
+    <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+
+    <a-entity id="predio-bayerkorp">
+        <!-- paredes recepcao -->
+        <a-entity class="parede" position="3.8 3.5 -20" rotation="0 0 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="8.8 3.5 -20" rotation="0 0 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="-3.8 3.5 -20" rotation="0 0 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="0 5 -20" rotation="0 0 0">
+            <a-box scale="2.6 4 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+
+        <!-- paredes laterais -->
+        <a-entity class="parede" position="-6.3 3.5 -17.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="-6.3 3.5 -12.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="-6.3 3.5 -7.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="-6.3 3.5 -2.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+
+        <!-- paredes laterais (outro lado) -->
+        <a-entity class="parede" position="11.3 3.5 -17.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="11.3 3.5 -12.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="11.3 3.5 -7.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+        <a-entity class="parede" position="11.3 3.5 -2.5" rotation="0 90 0">
+            <a-box scale="5 7 0.1" shadow="receive: true" material="
+                        src: #parede-hall;
+                        repeat: 2.5 2;
+                        roughnessTextureRepeat: 2.5 2;
+                        roughness: 0.9;
+                        metalness: 0">
+            </a-box>
+        </a-entity>
+
+        <!-- teto -->
+        <a-plane position="2.5 7 -10" rotation="90 0 0" width="18" height="20" material="src: #forro; repeat: 10 10; 
+        metalness:0.1; roughness: 1; side: double;"></a-plane>
+
+        <!-- Objetos -->
+        <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 -20" gltf-model="#porta-giratoria"></a-entity>
+        <a-entity scale="0.04 0.04 0.04" rotation="0 90 0" position="-4 1.5 -15.75" gltf-model="#mesa-recepcao"></a-entity>
+        <a-entity scale="2.5 2.5 2.5" rotation="0 90 0" position="-6.2 3.5 -15.75" gltf-model="#televisao"></a-entity>
+        
+
+   </a-entity>
 </a-entity> 
+
+
