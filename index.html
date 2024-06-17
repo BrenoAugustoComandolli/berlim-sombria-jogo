@@ -11,9 +11,37 @@
   <body>
     <div id="tela-home">
       <button id="botao-iniciar" onclick="iniciarJogo()">Iniciar jogo</button>
+      <div id="banner-jogo"></div>
     </div>
     <a-scene>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-assets>
+        <a-asset-item id="predios-fundo" src="./assets/predios-fundo.glb"></a-asset-item>
+        <img id="ceu-noite" src="./assets/ceu-noite.jpg"/>
+        <img id="lua" src="./assets/lua.jpg" crossorigin="anonymous"/>
+      </a-assets>
+
+      <!-- Fundo do jogo -->
+      <a-sky src="#ceu-noite"></a-sky>
+      <a-entity scale="1 1 1" rotation="0 90 0" position="0 0 0" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 90 0" position="30 0 0" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 90 0" position="-30 0 0" gltf-model="#predios-fundo"></a-entity>
+
+      <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 10" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 -25" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 0 0" position="0 0 -60" gltf-model="#predios-fundo"></a-entity>
+
+      <a-entity scale="1 1 1" rotation="0 180 0" position="0 0 10" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 180 0" position="0 0 -25" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 180 0" position="0 0 -60" gltf-model="#predios-fundo"></a-entity>
+
+      <a-entity scale="1 1 1" rotation="0 -90 0" position="30 0 -50" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 -90 0" position="0 0 -50" gltf-model="#predios-fundo"></a-entity>
+      <a-entity scale="1 1 1" rotation="0 -90 0" position="-30 0 -50" gltf-model="#predios-fundo"></a-entity>
+
+      <!-- Sol -->
+      <a-sphere position="80 200 -100" radius="2" material="src: #lua; emissive: #fff; emissiveIntensity: 0.9"></a-sphere>
+      <a-light type="directional" position="80 200 -100" intensity="1" color="#ffffff" target="#center"></a-light>
+      <a-entity id="center" position="0 0 0"></a-entity>
     </a-scene> 
   </body> 
 </html>
@@ -21,6 +49,7 @@
 <script>
   async function iniciarJogo() {
     document.getElementById('tela-home').style.display = 'none';
+    document.getElementById('banner-jogo').style.display = 'none';
     await adicionarCena('./cenas/bayerkorp/bayerkorp.html');
     await adicionarCena('./cenas/cidade-caos/cidade-caos.html');
   }
