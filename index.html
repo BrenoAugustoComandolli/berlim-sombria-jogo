@@ -16,6 +16,13 @@
     <a-scene>
       <a-assets>
         <a-asset-item id="predios-fundo" src="./assets/predios-fundo.glb"></a-asset-item>
+        <a-asset-item id="estrada" src="./cenas/cidade-caos/assets/estrada.glb"></a-asset-item>
+        <a-asset-item id="cruzamento" src="./cenas/cidade-caos/assets/cruzamento.glb"></a-asset-item>
+        <a-asset-item id="carro-futurista" src="./cenas/cidade-caos/assets/carro-futurista.glb"></a-asset-item>
+        <a-asset-item id="carro-futurista-2" src="./cenas/cidade-caos/assets/carro-futurista-2.glb"></a-asset-item>
+        <a-asset-item id="carro-futurista-3" src="./cenas/cidade-caos/assets/carro-futurista-3.glb"></a-asset-item>
+        <a-asset-item id="carro-futurista-4" src="./cenas/cidade-caos/assets/carro-futurista-4.glb"></a-asset-item>
+        <a-asset-item id="lampada-rua" src="./cenas/cidade-caos/assets/lampada-rua.glb"></a-asset-item>
         <img id="ceu-noite" src="./assets/ceu-noite.jpg"/>
         <img id="lua" src="./assets/lua.jpg" crossorigin="anonymous"/>
         <a-asset-item id="porta-giratoria" src="./assets/porta_giratoria.glb"></a-asset-item>
@@ -23,11 +30,14 @@
         <img id="chao-hall" src="./assets/chao_hall.png" crossorigin="anonymous"/>
         <a-asset-item id="mesa-recepcao" src="./assets/mesa_recepcao.glb"></a-asset-item>
         <a-asset-item id="televisao" src="./assets/televisao.glb"></a-asset-item>
-
+        <a-asset-item id="chapeu-projeto" src="./cenas/cidade-caos/assets/chapeu-projeto.glb"></a-asset-item>
+        <a-asset-item id="katana-projeto" src="./cenas/cidade-caos/assets/katana-projeto.glb"></a-asset-item>
+        <a-asset-item id="predio-pichado" src="./cenas/cidade-caos/assets/predio-pichado.glb"></a-asset-item>
       </a-assets>
 
       <!-- Fundo do jogo -->
-      <a-sky src="#ceu-noite"></a-sky> 
+      <a-sky src="#ceu-noite"></a-sky>
+ 
       <a-entity scale="1 1 1" rotation="0 90 0" position="0 0 0" gltf-model="#predios-fundo"></a-entity>
       <a-entity scale="1 1 1" rotation="0 90 0" position="30 0 0" gltf-model="#predios-fundo"></a-entity>
       <a-entity scale="1 1 1" rotation="0 90 0" position="-30 0 0" gltf-model="#predios-fundo"></a-entity>
@@ -53,6 +63,25 @@
 </html>
 
 <script>
+  AFRAME.registerComponent('fire-animation', {
+        schema: {
+            amplitude: { default: 0.1 },
+            speed: { default: 1 }
+        },
+        init: function () {
+            this.scale = this.el.object3D.scale;
+            this.position = this.el.object3D.position;
+        },
+        tick: function (time, timeDelta) {
+            // Animação de escala para simular o fogo
+            this.scale.y = Math.sin(time / 1000 * this.data.speed) * this.data.amplitude + 1;
+            this.el.object3D.scale.copy(this.scale);
+            
+            // Animação de posição para movimentar levemente o fogo
+            this.position.y = Math.sin(time / 500 * this.data.speed) * this.data.amplitude;
+            this.el.object3D.position.copy(this.position);
+        }
+    });
   async function iniciarJogo() {
     document.getElementById('tela-home').style.display = 'none';
     document.getElementById('banner-jogo').style.display = 'none';
