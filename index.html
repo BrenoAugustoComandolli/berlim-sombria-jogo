@@ -15,6 +15,12 @@
       <div id="banner-jogo"></div>
     </div>
     <a-scene>
+
+      <!-- Camera -->
+      <a-entity class="player" id="player" wasd-controls camera universal-controls look-controls
+        position="1 2 -23">
+      </a-entity>
+
       <a-assets>
         <a-asset-item id="predios-fundo" src="./assets/predios-fundo.glb"></a-asset-item>
         <a-asset-item id="estrada" src="./cenas/cidade-caos/assets/estrada.glb"></a-asset-item>
